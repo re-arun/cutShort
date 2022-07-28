@@ -1,90 +1,55 @@
 import React, { useContext } from "react";
 import { LabelContext } from "../labelDataContext";
 // import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Container from 'react-bootstrap/Container';
 import "../styles.css";
-
+import Stack from "react-bootstrap/Stack";
 const SenderAddress = (props) => {
   const value = useContext(LabelContext);
   const sender = value.labelInfo.sender;
   const btnDisbaled = sender.name.length > 0;
   return (
-    <div>
-      <form style={{ width: "100%", textAlign: "center" }}>
-        <h1 style={{fontFamily:'Inter' }}> Welcome! First things first...</h1>
-        <h4 style={{ color: "gray" }}>You can always change them later.</h4>
+    <Container>
+      <Form >
+        <h3 className="text-center "> Welcome! First things first...</h3>
+        <h6 className="text-center text-secondary mb-5">You can always change them later.</h6>
 
-        {/* <TextField
-        label="Steve Jobs"
-        style={{ margin: 8, width: "93%" }}
-        fullWidth
-        margin="normal"
-        required
-        onChange={value.setSenderInfo("name")}
-        value={sender.name}
-      /> */}
-        <p style={{ width: "57%" }}>Full Name</p>
-        <input
-        type={'text'}
-          placeholder="Steve Jobs"
-          style={{
-            width: "50%",
-            height: 40,
-            borderRadius: 5,
-            borderColor: "#e3dfde",
-            borderWidth: 0.4,
-            paddingLeft:15,
-          }}
-          
-          // margin="normal"
-          required
-          onChange={value.setSenderInfo("name")}
-          value={sender.name}
-        />
-        <p
-          style={{
-            width: "60%",
-          }}
-        >
-          Display Name
-        </p>
-        <input
-        type={'text'}
-          placeholder="Steve"
-          style={{
-            width: "50%",
-            height: 40,
-            borderRadius: 5,
-            borderColor: "#e3dfde",
-            borderWidth: 0.4,
-            paddingLeft:15,
-          }}
-          fullWidth
-          margin="normal"
-          required
-          onChange={value.setSenderInfo("street")}
-          value={sender.street}
-        />
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Full Name</Form.Label>
+          <Form.Control
+            type="Text"
+            placeholder="Steve Jobs "
+            onChange={value.setSenderInfo("name")}
+            value={sender.name}
+          />
+        </Form.Group>
 
-        <div>
-          <ButtonGroup
-            variant="contained"
-            color="primary"
-            aria-label="text  button group"
-            style={{ marginTop: 15, width: "50%" }}
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Display Name</Form.Label>
+          <Form.Control
+            type="Text"
+            placeholder="Steve"
+            onChange={value.setSenderInfo("street")}
+            value={sender.street}
+          />
+        </Form.Group>
+<Stack  >
+
+        <Button
+        className="p-2"
+          style={{ background: "#6b40d8 ", color: "white"  }}
+          varient="primary"
+          type="submit"
+          disabled={!btnDisbaled}
+          onClick={() => value.nextPage()}
           >
-            <Button
-              disabled={!btnDisbaled}
-              onClick={() => value.nextPage()}
-              style={{ color: "white", width: "100%", background:'#6b40d8 '   }}
-            >
-              Create Workspace
-            </Button>
-          </ButtonGroup>
-        </div>
-      </form>
-    </div>
+          Submit
+        </Button>
+          </Stack>
+      </Form>
+    </Container>
   );
 };
 export default SenderAddress;

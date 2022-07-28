@@ -1,60 +1,65 @@
 import React, { useContext } from "react";
 import { LabelContext } from "../labelDataContext";
-import Radio from "@mui/material/Radio";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import RadioGroup from "@mui/material/RadioGroup";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import { Container, Form, Row, Col } from "react-bootstrap";
+import Box from "@mui/material/Box";
+
+import Button from "react-bootstrap/Button";
+// import { Button } from "bootstrap";
+import Card from "react-bootstrap/Card";
+
 import "../styles.css";
 
 const GetShippingOption = (props) => {
   const val = useContext(LabelContext);
-  const [shipping, setshipping] = React.useState("");
-  const setId = (event) => {
-    event.preventDefault();
-    setshipping(event.target.value);
-  };
-  const btnDisbaled = shipping.length > 0;
+  
+  // const btnDisbaled = shipping.length > 0;
 
   return (
-    <form  style={{ width: "100%", textAlign: "center" }}>
-       <h1 style={{}}> How are you planning to use Eden?</h1>
-        <h4 style={{ color: "gray" }}>We'll streamline your setup experience accordingly.</h4>
-      <RadioGroup
-        aria-label="weight"
-        name="weight"
-        value={shipping}
-        className="form"
-        onChange={setId}
+    <Container>
+    <Form >
+      <h3 > How are you planning to use Eden? </h3>
+      <h6>
+        We'll streamline your setup experience accordingly.
+      </h6>
+      <Container className="d-flex p-2 bd-highlight">
+        <Row>
+          <Col>
+            <Card style={{ width: "18rem" }}>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card style={{ width: "18rem" }}>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+
+      <Button
+        onClick={() => val.nextPage()}
+        style={{ color: "white", width: "100%", background: "#6b40d8 " }}
       >
-        <FormControlLabel
-          control={<Radio />}
-          label="Ground"
-          value="1"
-          onChange={val.handleChange("shippingOption")}
-        />
-        <FormControlLabel
-          control={<Radio />}
-          label="Priority"
-          value="2"
-          onChange={val.handleChange("shippingOption")}
-        />
-      </RadioGroup>
-      <ButtonGroup
-            variant="contained"
-            color="primary"
-            aria-label="text  button group"
-            style={{ marginTop: 15, width: "50%" }}
-          >
-            <Button
-              disabled={!btnDisbaled}
-              onClick={() => val.nextPage()}
-              style={{ color: "white", width: "100%", background:'#6b40d8 '   }}
-            >
-              Create Workspace
-            </Button>
-          </ButtonGroup>
-    </form>
+        Create Workspace
+      </Button>
+    </Form>
+    </Container>
   );
 };
 export default GetShippingOption;
