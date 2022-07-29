@@ -18,7 +18,7 @@ const SenderAddress = (props) => {
         <h6 className="text-center text-secondary mb-5 ">You can always change them later.</h6>
         <Row className="justify-content-center">
           <Col xs={12} lg={8} md={7} >
-          <Form.Group className="mb-3"  controlId="formBasicEmail">
+          <Form.Group className="mb-3" >
           <Form.Label className="fw-bold fs-6">Full Name</Form.Label>
           <Form.Control
             type="Text"
@@ -32,7 +32,7 @@ const SenderAddress = (props) => {
         </Row>
       <Row className="justify-content-center">
         <Col xs={12} lg={8} md={7}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" >
           <Form.Label className="fw-bold fs-6">Display Name</Form.Label>
           <Form.Control
             type="Text"

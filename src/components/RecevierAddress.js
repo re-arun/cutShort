@@ -19,7 +19,7 @@ const RecevierAddress = (props) => {
       <Row className="justify-content-center">
           <Col xs={12} lg={8} md={7} >
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicText">
         <Form.Label className="fw-bold">Workspace Name</Form.Label>
         <Form.Control
           type="Text"
