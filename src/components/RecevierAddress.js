@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { LabelContext } from "../labelDataContext";
 
 
-import { Button, Stack, Form, InputGroup } from "react-bootstrap";
+import { Button, Stack, Form, InputGroup,Row, Col } from "react-bootstrap";
 
 const RecevierAddress = (props) => {
   const value = useContext(LabelContext);
@@ -12,12 +12,15 @@ const RecevierAddress = (props) => {
     
   return (
     <Form>
-      <h3 className="text-center"> Let's Setup a home for all your work</h3>
+      <h3 className="text-center fw-bold"> Let's Setup a home for all your work</h3>
       <h6 className="text-center mb-5 text-secondary ">
         You can always create another workspace later
       </h6>
+      <Row className="justify-content-center">
+          <Col xs={12} lg={8} md={7} >
+
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Workspace Name</Form.Label>
+        <Form.Label className="fw-bold">Workspace Name</Form.Label>
         <Form.Control
           type="Text"
           placeholder={(value.labelInfo.sender.name)}
@@ -26,8 +29,11 @@ const RecevierAddress = (props) => {
           value={recevier.name}
         />
       </Form.Group>
-
-      <Form.Label htmlFor="basic-url">
+          </Col>
+          </Row>
+          <Row className="justify-content-center">
+          <Col xs={12} lg={8} md={7} >
+      <Form.Label htmlFor="basic-url" className="fw-bold">
         Workspace URL
         <Form.Text className="text-muted">(optional)</Form.Text>
       </Form.Label>
@@ -40,7 +46,10 @@ const RecevierAddress = (props) => {
           value={recevier.street}
         />
       </InputGroup>
-
+      </Col>
+      </Row>
+      <Row className="justify-content-center">
+          <Col xs={12} lg={8} md={7} >
       <Stack>
         <Button
           className="p-2"
@@ -52,6 +61,9 @@ const RecevierAddress = (props) => {
           Create Workspace
         </Button>
       </Stack>
+      </Col>
+      </Row>
+
     </Form>
   );
 };

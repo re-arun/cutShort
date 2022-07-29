@@ -7,17 +7,11 @@ export const LabelProvider = (props) => {
   const [labelInfo, setlabelInfo] = useState({
     sender: {
       name: "",
-      street: "",
-      city: "",
-      state: "",
-      zipCode: ""
+     
     },
     recevier: {
       name: "",
-      street: "",
-      city: "",
-      state: "",
-      zipCode: ""
+    
     },
   
     shippingOption: "1"
